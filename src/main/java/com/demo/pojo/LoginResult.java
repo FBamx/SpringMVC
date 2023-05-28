@@ -1,32 +1,31 @@
 package com.demo.pojo;
 
-import org.springframework.stereotype.Component;
-
 public class LoginResult {
-    private int code;
-    private String message;
-
-    public LoginResult(int code, String message) {
-        this.code = code;
-        this.message = message;
-    }
+    private int loginID;
 
     public LoginResult() {
     }
 
-    public int getCode() {
-        return code;
+    public LoginResult(int loginID, String token) {
+        this.loginID = loginID;
+        this.token = token;
     }
 
-    public String getMessage() {
-        return message;
+    public void setLoginID(int loginID) {
+        this.loginID = loginID;
     }
 
-    public void setCode(int code) {
-        this.code = code;
+    public void setToken(String token) {
+        this.token = token;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public int getLoginID() {
+        return loginID;
     }
+
+    public String getToken() {
+        return token;
+    }
+
+    private String token;
 }

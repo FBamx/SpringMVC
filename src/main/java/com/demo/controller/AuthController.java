@@ -4,17 +4,17 @@ import com.alibaba.fastjson.JSON;
 import com.demo.pojo.LoginResult;
 import com.demo.pojo.User;
 import com.demo.utils.JWT;
-import org.springframework.http.MediaType;
+import com.demo.utils.response.ResponseCode;
+import com.demo.utils.response.ResponseData;
+import com.demo.utils.response.ResponseDataUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.awt.*;
 
 @Controller
 @RequestMapping("/auth")
 @CrossOrigin
 public class AuthController {
-    @PostMapping("/login")
+    @PostMapping("/loginWithFastjson")
     @ResponseBody
     public String login(@RequestBody String body) {
         User user = JSON.parseObject(body, User.class);
@@ -24,10 +24,12 @@ public class AuthController {
         return JSON.toJSONString(lr);
     }
 
-    @GetMapping("/test")
+    @PostMapping("/login")
     @ResponseBody
-    public User test() {
-        return new User("er@qq.com", "1234");
+    public ResponseData login(@RequestBody User user) {
+        int loginID = 1;
+        String token = JWT.sign(user, 550000);
+        return ResponseDataUtils.buildSuccess(ResponseCode.SUCCESS, "login success",  new LoginResult(loginID, token));
     }
 
 }
