@@ -39,7 +39,6 @@
     <!--    配置mapper接口的扫描器，将mapper接口的实现类自动注入到ioc容器中-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.demo.mapper"/>
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 
 </beans>
