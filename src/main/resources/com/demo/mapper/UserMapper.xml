@@ -7,26 +7,6 @@
     接口代理方式，属性值要写成接口的完整类名-->
 <mapper namespace="com.demo.mapper.UserMapper">
 
-
-    <!-- 开启二级缓存 -->
-    <!--
-
-   <cache
-   	size="1024" //缓存对象的最大个数，默认是1024个
-   	eviction="LRU"  //缓存对象的回收策略，默认是LRU算法
-      //LRU Least Recently Used 最近最少使用，移除最长时间不被使用的对象
-      //FIFO First In First Out 先进先出，按对象进入缓存的顺序来移除它们
-      //SOFT 软引用，移除基于垃圾回收器状态和软引用规则的对象
-      //WEAK 弱引用，更积极地移除基于垃圾收集器和弱引用规则的对象
-
-    flushInterval="60000" //自动清空缓存的间隔时间，单位为毫秒，默认是0，表示无穷大
-
-    readOnly="true"  //缓存对象是否只读，默认为false
-      //true 从缓存中获取的数据都是只读的，为了加快查询速度，直接返回数据在缓存中的引用，缺点是不安全
-      //false 从缓存中获取的数据可能会被修改，为了安全起见，利用序列化和反序列的技术克隆一份新的数据返回，缺点是速度慢
-    />
-
-    -->
     <!-- 开启MyBatis自带的二级缓存 -->
     <cache
             size="1024"
@@ -41,4 +21,8 @@
     <select id="findUserList" resultType="user">
         select * from student
     </select>
+
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
+        insert into student values(#{id}, #{name}, #{email})
+    </insert>
 </mapper>
