@@ -1,9 +1,10 @@
 package com.demo.service.auth;
 
-import com.demo.pojo.User;
-
-import java.util.List;
+import com.demo.pojo.user.User;
 
 public interface AuthService {
-    List<User> findUserList();
+
+    boolean loginCheck(User user);
+
+    boolean regiseter(User user);
 }

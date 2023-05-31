@@ -19,10 +19,14 @@
     	目前写的是user是因为后期会起一个别名，
     	默认的别名就是类名的首字母小写 -->
     <select id="findUserList" resultType="user">
-        select * from student
+        select * from user;
+    </select>
+
+    <select id="findUserByEmail" parameterType="java.lang.String" resultType="user">
+       select id, email, name, password from user where email = #{email}
     </select>
 
     <insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
-        insert into student values(#{id}, #{name}, #{email})
+        insert into user values(#{id}, #{email}, #{name}, #{password})
     </insert>
 </mapper>

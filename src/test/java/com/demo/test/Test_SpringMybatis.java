@@ -1,7 +1,7 @@
 package com.demo.test;
 
 import com.demo.mapper.UserMapper;
-import com.demo.pojo.User;
+import com.demo.pojo.user.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +21,6 @@ public class Test_SpringMybatis {
     public void testFindUserList() {
         List<User> userList = userMapper.findUserList();
         System.out.println(userList);
-
-        User user = new User(3, "495745954@qq.com", "lichubin");
-        userMapper.insertUser(user);
     }
 
 }

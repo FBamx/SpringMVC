@@ -10,6 +10,11 @@ public class ResponseData<T> implements Serializable {
     public ResponseData() {
     }
 
+    public ResponseData(int code, String message) {
+        this.code = code;
+        this.message = message;
+    }
+
     public ResponseData(int code, String message, T data) {
         this.code = code;
         this.message = message;

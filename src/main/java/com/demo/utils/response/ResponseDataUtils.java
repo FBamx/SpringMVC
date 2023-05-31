@@ -9,7 +9,15 @@ public class ResponseDataUtils {
     public static <T> ResponseData buildSuccess(int code, String message, T data) {
         return new ResponseData<T>(code, message, data);
     }
+
+    public static <T> ResponseData buildSuccess(int code, String message) {
+        return new ResponseData<T>(code, message);
+    }
     public static <T> ResponseData buildFailed(int code, String message, T data) {
         return new ResponseData<T>(code, message, data);
+    }
+
+    public static <T> ResponseData buildFailed(int code, String message) {
+        return new ResponseData<T>(code, message);
     }
 }

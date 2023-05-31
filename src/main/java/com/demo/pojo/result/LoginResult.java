@@ -1,7 +1,8 @@
-package com.demo.pojo;
+package com.demo.pojo.result;
 
 public class LoginResult {
     private int loginID;
+    private String token;
 
     public LoginResult() {
     }
@@ -27,5 +28,4 @@ public class LoginResult {
         return token;
     }
 
-    private String token;
 }
